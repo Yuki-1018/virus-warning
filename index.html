@@ -1,3 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+  <body bgcolor="red" text="white">
+    <h1 class="blink"><center>あなたのデバイスはウイルスに感染しています。</center></h1>
+    <p class="nones" id="devicename"></p>
+    <p class="null">すぐに対応する必要があります。専用のソフト・アプリをインストールしてウイルスを除去してください。<p>
+    <p class="countdown" id="nokori"></p>
+    <p class="null">であなたの大切な画像が削除され、さらに個人情報も収集されてしまいます。</p>
+    <center><input type="button" class="button" id="button1" value="いますぐ除去" style="width:300px"></input>
+    <input type="button" class="button" id="button2" value="無視" style="width:300px"></input></center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>これは偽画面です！すぐにページを消してください</h2>
+  </body>
+  <style>
+    .blink {
+        -webkit-animation: blink 1s ease infinite;
+        animation: blink 1s ease infinite;
+        color: white;
+    }
+    @-webkit-keyframes blink {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    @keyframes blink {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    .nones {
+        font-size:1.8em;
+    }
+    .countdown {
+        font-size:1.5em;
+    }
+    body {
+        margin:3em;
+    }
+    input {
+        font-size:19px;
+   }
+  </style>
   <script type="text/javascript">
     var ta = document.getElementById('devicename')
     var msg = ""
@@ -20,3 +71,35 @@
     ta.textContent = "あなたの " + msg + " は(5)つのウイルスに感染しています。";
     alert( "あなたの " + msg + " は(5)つのウイルスに感染しています。\n閉じる場合は自己責任で")
   </script>
+  <script type="text/javascript">
+    const totalTime = 32000;
+    const oldTime = Date.now();
+
+    const timeId = setInterval(() => {
+    const currentTime = Date.now();
+
+    const diff = currentTime - oldTime;
+
+    const diffSec = totalTime - diff;
+
+    const remainSec = Math.ceil(diffSec / 1000);
+
+    let text = `残り${remainSec}秒`;
+
+    if (diffSec <= 0) {
+      clearInterval(timeId);
+
+      text = "ウイルスが拡散しました。";
+    }
+
+      ta = document.getElementById("nokori")
+      ta.textContent = text;
+    })
+    document.getElementById("button1").onclick = function() {
+      window.location.href = 'https://programming-self-study.blogspot.com';
+    };
+    document.getElementById("button2").onclick = function() {
+      window.location.href = 'https://programming-self-study.blogspot.com';
+    };
+  </script>
+</html>
