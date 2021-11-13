@@ -1,0 +1,22 @@
+  <script type="text/javascript">
+    var ta = document.getElementById('devicename')
+    var msg = ""
+    var ut = navigator.userAgent;
+
+    if(ut.indexOf('iPhone') > 0){
+      msg += "Apple iPhone";
+    }else if(ut.indexOf('iPod') > 0){
+      msg += "Apple iPod";
+    }else if(ut.indexOf('Android') > 0 && ut.indexOf('Mobile') > 0){
+      msg += "Androidスマートフオン";
+    }else if(ut.indexOf('Android') > 0){
+      msg += "Android タブレット";
+    }else if(ut.indexOf('iPad') > 0 ){
+      msg += "Apple iPad";
+    }else{
+      msg +="パソコン";
+    }
+
+    ta.textContent = "あなたの " + msg + " は(5)つのウイルスに感染しています。";
+    alert( "あなたの " + msg + " は(5)つのウイルスに感染しています。\n閉じる場合は自己責任で")
+  </script>
